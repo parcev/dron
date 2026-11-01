@@ -16,15 +16,15 @@ if (!DATABASE_URL || !JUDGE_PIN || !ADMIN_PIN) {
   process.exit(1);
 }
 // Neon adds channel_binding=require, which the pg driver does not support
-try { const u = new URL(DATABASE_URL); u.searchParams.delete("channel_binding"); DATABASE_URL = u.toString(); } catch (e) {}
+try { const u = new URL(DATABASE_URL); u.searchParams.delete("channel_binding"); DATABASE_URL = u.toString(); } catch (e) { }
 
 const local = /localhost|127\.0\.0\.1/.test(DATABASE_URL);
-const pool = new Pool({ connectionString: DATABASE_URL, ssl: local ? false : { rejectUnauthorized: false }, max: 5, idleTimeoutMillis: 30000 });
+const pool = new Pool({ connectionString: DATABASE_URL, ssl: local ? false : { rejectUnauthorized: false }, max: 5, idleTimeoutMillis: 30000, connectionTimeoutMillis: 10000, statement_timeout: 15000, });
 pool.on("error", (e) => console.error("Database connection error:", e.message));
 
 // everything lives in memory too, so reads and the live feed never wait for the database
 const cache = {};
-for (const c of COLS) cache[c] = new Map();
+for (const c of COLS) cache[ c ] = new Map();
 
 async function init() {
   for (let i = 1; ; i++) {
@@ -33,7 +33,7 @@ async function init() {
         col text not null, id text not null, data jsonb not null,
         updated_at timestamptz not null default now(), primary key (col, id))`);
       const { rows } = await pool.query("select col, id, data from docs");
-      for (const r of rows) if (cache[r.col]) cache[r.col].set(r.id, r.data);
+      for (const r of rows) if (cache[ r.col ]) cache[ r.col ].set(r.id, r.data);
       console.log(`Loaded ${rows.length} saved documents`);
       return;
     } catch (e) {
@@ -52,7 +52,7 @@ function emit(event, payload) {
 }
 const snapshot = () => {
   const o = {};
-  for (const c of COLS) o[c] = [...cache[c]].map(([id, data]) => ({ id, data }));
+  for (const c of COLS) o[ c ] = [ ...cache[ c ] ].map(([ id, data ]) => ({ id, data }));
   return o;
 };
 setInterval(() => { for (const r of clients) { try { r.write(": ping\n\n"); } catch (e) { clients.delete(r); } } }, 20000);
@@ -62,13 +62,28 @@ setInterval(() => {
   const cutoff = Date.now() - 6 * 3600 * 1000;
   for (const c of COLS) {
     if (PERSIST.has(c)) continue;
-    for (const [id, d] of cache[c]) if (d && d.at && d.at < cutoff) { cache[c].delete(id); emit("change", { col: c, id, data: null }); }
+    for (const [ id, d ] of cache[ c ]) if (d && d.at && d.at < cutoff) { cache[ c ].delete(id); emit("change", { col: c, id, data: null }); }
   }
 }, 10 * 60 * 1000);
 
 /* ---------- web server ---------- */
 const app = express();
 app.disable("x-powered-by");
+
+app.use((req, res, next) => {
+  const started = Date.now();
+
+  console.log(`[REQ] ${req.method} ${req.url}`);
+
+  res.on("finish", () => {
+    console.log(
+      `[RES] ${req.method} ${req.url} ${res.statusCode} ${Date.now() - started}ms`
+    );
+  });
+
+  next();
+});
+
 app.use(express.json({ limit: "20kb" }));
 app.use((req, res, next) => {
   res.set({
@@ -94,7 +109,7 @@ app.get("/api/stream", (req, res) => {
 
 function check(req, res) {
   const { col, id } = req.params;
-  if (!cache[col] || !ID_RE.test(id)) { res.status(404).json({ error: "not found" }); return false; }
+  if (!cache[ col ] || !ID_RE.test(id)) { res.status(404).json({ error: "not found" }); return false; }
   const need = needLevel(col, req.method);
   if (level(req.headers, JUDGE_PIN, ADMIN_PIN) < need) { res.status(401).json({ need: need === 2 ? "admin" : "judge" }); return false; }
   return true;
@@ -109,9 +124,9 @@ app.put("/api/docs/:col/:id", async (req, res) => {
       await pool.query(
         `insert into docs(col,id,data) values($1,$2,$3)
          on conflict (col,id) do update set data = excluded.data, updated_at = now()`,
-        [col, id, req.body]
+        [ col, id, req.body ]
       );
-    cache[col].set(id, req.body);
+    cache[ col ].set(id, req.body);
     emit("change", { col, id, data: req.body });
     res.json({ ok: true });
   } catch (e) { console.error(e); res.status(500).json({ error: "server" }); }
@@ -121,8 +136,8 @@ app.delete("/api/docs/:col/:id", async (req, res) => {
   try {
     if (!check(req, res)) return;
     const { col, id } = req.params;
-    if (PERSIST.has(col)) await pool.query("delete from docs where col=$1 and id=$2", [col, id]);
-    cache[col].delete(id);
+    if (PERSIST.has(col)) await pool.query("delete from docs where col=$1 and id=$2", [ col, id ]);
+    cache[ col ].delete(id);
     emit("change", { col, id, data: null });
     res.json({ ok: true });
   } catch (e) { console.error(e); res.status(500).json({ error: "server" }); }
