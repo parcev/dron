@@ -155,6 +155,18 @@ app.get("/api/export", (req, res) => {
 const front = path.join(__dirname, "..", "frontend");
 if (fs.existsSync(front)) app.use(express.static(front));
 
-init()
-  .then(() => app.listen(PORT, () => console.log(`Listening on ${PORT}`)))
-  .catch((e) => { console.error("Could not start:", e.message); process.exit(1); });
+const server = app.listen(PORT, "0.0.0.0", () => {
+  console.log(`[BOOT] Listening on ${PORT}`);
+
+  init()
+    .then(() => {
+      console.log("[BOOT] Database initialization completed");
+    })
+    .catch((e) => {
+      console.error("[BOOT] Database initialization failed:", e);
+    });
+});
+
+server.on("error", (e) => {
+  console.error("[BOOT] HTTP server error:", e);
+});
