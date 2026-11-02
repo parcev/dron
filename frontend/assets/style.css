@@ -212,3 +212,8 @@ th small{display:block;font-size:10px;font-weight:600;opacity:.7;white-space:now
 .jdwarn{background:var(--wbg);border:1px solid var(--wline);color:var(--wink)}
 @media (prefers-reduced-motion:reduce){.pop,.nudge{animation:none}}
 body.boot .wrap{visibility:hidden}
+/* Leaderboard and admin scores: centre the match headers over their scores and give every score box the same size */
+#lbbody th:not(:first-child),#lbbody td:not(:first-child),
+#ascbody th:not(:first-child),#ascbody td:not(:first-child){text-align:center}
+#lbbody td,#ascbody td{vertical-align:middle}
+#lbbody .att span,#ascbody .cell{box-sizing:border-box;width:42px;min-width:42px;padding-left:0;padding-right:0;text-align:center}
