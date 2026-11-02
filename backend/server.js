@@ -28,7 +28,9 @@ for (const c of COLS) cache[ c ] = new Map();
 
 async function init() {
   for (let i = 1; ; i++) {
+    console.log(`[DB] Attempt ${i}: connecting and loading documents...`);
     try {
+
       await pool.query(`create table if not exists docs(
         col text not null, id text not null, data jsonb not null,
         updated_at timestamptz not null default now(), primary key (col, id))`);
@@ -96,7 +98,28 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/health", (req, res) => res.json({ ok: true }));
+app.get("/health", (req, res) => {
+  res.json({
+    ok: true,
+    uptime: Math.round(process.uptime()),
+    memoryMB: Math.round(process.memoryUsage().rss / 1024 / 1024),
+    clients: clients.size,
+    timestamp: new Date().toISOString()
+  });
+});
+
+app.get("/ready", async (req, res) => {
+  try {
+    await pool.query("SELECT 1");
+    res.json({ ok: true, database: "connected" });
+  } catch (e) {
+    console.error("[READY] Database check failed:", e.message);
+    res.status(503).json({
+      ok: false,
+      database: "unavailable"
+    });
+  }
+});
 
 app.get("/api/stream", (req, res) => {
   res.set({ "Content-Type": "text/event-stream", "Cache-Control": "no-cache, no-transform", Connection: "keep-alive", "X-Accel-Buffering": "no" });
@@ -104,7 +127,12 @@ app.get("/api/stream", (req, res) => {
   res.write("retry: 2000\n\n");
   res.write(`event: snapshot\ndata: ${JSON.stringify(snapshot())}\n\n`);
   clients.add(res);
-  req.on("close", () => clients.delete(res));
+  console.log(`[SSE] Connected. Clients: ${clients.size}`);
+
+  req.on("close", () => {
+    clients.delete(res);
+    console.log(`[SSE] Disconnected. Clients: ${clients.size}`);
+  });
 });
 
 function check(req, res) {
