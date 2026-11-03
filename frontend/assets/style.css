@@ -229,3 +229,7 @@ body.boot .wrap{visibility:hidden}
 #home .top .nav .lnk{flex:1 1 0;min-height:38px;font-size:14px}
 #schbody .leg{top:calc(env(safe-area-inset-top,0px) + var(--topH,0px))}
 #schbody .sec .cat{top:calc(env(safe-area-inset-top,0px) + var(--topH,0px) + 34px)}
+/* Schedule: more space above the pinned title, and Calculator and Leaderboard look the same */
+#home .top{padding-top:14px}
+#home .top .lbh{margin-top:0}
+#home .top .nav .lnk{background:var(--acc);color:var(--on-acc)}
