@@ -233,3 +233,7 @@ body.boot .wrap{visibility:hidden}
 #home .top{padding-top:14px}
 #home .top .lbh{margin-top:0}
 #home .top .nav .lnk{background:var(--acc);color:var(--on-acc)}
+/* Pick a team: same side margins as the other pages */
+#pick{max-width:560px;margin:0 auto;padding:12px 12px 24px}
+/* Admin scores: "Clear ALL scores" button */
+#asc .clrall{display:block;width:100%;margin-top:18px;min-height:44px;border:1.5px solid #d92d20;border-radius:12px;background:none;color:#d92d20;font-size:14px;font-weight:800}
