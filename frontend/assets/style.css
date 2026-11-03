@@ -221,3 +221,11 @@ body.boot .wrap{visibility:hidden}
 #schbody .leg{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;display:flex;align-items:center;height:34px;margin:0;padding:0 2px;background:var(--bg)}
 #schbody .sec{margin-bottom:10px}
 #schbody .sec .cat{position:sticky;top:calc(env(safe-area-inset-top,0px) + 34px);z-index:5;display:flex;align-items:center;height:30px;margin:0;padding:0 3px;background:var(--bg)}
+/* Schedule: the title and the buttons are pinned too; the legend and category title stick right under them */
+#home .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:7;background:var(--bg);padding-bottom:6px}
+#home .top .lbh{margin:6px 2px 4px}
+#home .top .lbh h1{font-size:18px}
+#home .top .nav{flex-wrap:nowrap;margin:0}
+#home .top .nav .lnk{flex:1 1 0;min-height:38px;font-size:14px}
+#schbody .leg{top:calc(env(safe-area-inset-top,0px) + var(--topH,0px))}
+#schbody .sec .cat{top:calc(env(safe-area-inset-top,0px) + var(--topH,0px) + 34px)}
