@@ -217,3 +217,7 @@ body.boot .wrap{visibility:hidden}
 #ascbody th:not(:first-child),#ascbody td:not(:first-child){text-align:center}
 #lbbody td,#ascbody td{vertical-align:middle}
 #lbbody .att span,#ascbody .cell{box-sizing:border-box;width:42px;min-width:42px;padding-left:0;padding-right:0;text-align:center}
+/* Schedule: the legend and the category title stay pinned at the top while the matches scroll beneath them */
+#schbody .leg{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;display:flex;align-items:center;height:34px;margin:0;padding:0 2px;background:var(--bg)}
+#schbody .sec{margin-bottom:10px}
+#schbody .sec .cat{position:sticky;top:calc(env(safe-area-inset-top,0px) + 34px);z-index:5;display:flex;align-items:center;height:30px;margin:0;padding:0 3px;background:var(--bg)}
