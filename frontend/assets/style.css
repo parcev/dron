@@ -239,4 +239,4 @@ body.boot .wrap{visibility:hidden}
 #asc .clrall{display:block;width:100%;margin-top:18px;min-height:44px;border:1.5px solid #d92d20;border-radius:12px;background:none;color:#d92d20;font-size:14px;font-weight:800}
 /* Calculator: while scoring a real match the home and leaderboard buttons are hidden, and long team names may use two lines */
 .tabs.lock .lbb{display:none}
-/*.ctxt b{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;white-space:normal;overflow:hidden;word-break:break-word}
+.ctxt b{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;white-space:normal;overflow:hidden;word-break:break-word}
