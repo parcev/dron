@@ -240,3 +240,6 @@ body.boot .wrap{visibility:hidden}
 /* Calculator: while scoring a real match the home and leaderboard buttons are hidden, and long team names may use two lines */
 .tabs.lock .lbb{display:none}
 .ctxt b{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;white-space:normal;overflow:hidden;word-break:break-word}
+/* Schedule: bigger Calculator and Leaderboard buttons */
+#home .top .nav{gap:10px}
+#home .top .nav .lnk{min-height:54px;font-size:18px;border-radius:14px}
