@@ -1,0 +1,28 @@
+/* Polski. Keys are the English text. Stage 3a: schedule and pick-a-team. */
+window.I18N = {
+  "Competition schedule": "Harmonogram zawodów",
+  "Calculator": "Kalkulator",
+  "Leaderboard": "Tabela wyników",
+  "Schedule": "Harmonogram",
+  "Scored": "Ocenione",
+  "Now": "Teraz",
+  "Upcoming": "Nadchodzące",
+  "Next up": "Następny",
+  "Overdue": "Zaległy",
+  "Teamwork": "Praca zespołowa",
+  "Autonomous": "Autonomiczna",
+  "Solo piloting": "Pilotaż solo",
+  "Time": "Godzina",
+  "Team name": "Nazwa drużyny",
+  "Loading…": "Ładowanie…",
+  "No schedule yet. An admin can import one on the Admin page.": "Brak harmonogramu. Administrator może go zaimportować na stronie administratora.",
+  "Can’t load the schedule here. Check your connection and try again.": "Nie można wczytać harmonogramu. Sprawdź połączenie i spróbuj ponownie.",
+  "Pick a team": "Wybierz drużynę",
+  "Start scoring ›": "Rozpocznij ocenianie ›",
+  "Practice match": "Mecz treningowy",
+  "All matches": "Wszystkie mecze",
+  "All matches are scored.": "Wszystkie mecze zostały ocenione.",
+  "The schedule can’t load here.": "Nie można wczytać harmonogramu.",
+  "No schedule yet. Import one on the Admin page, or run a practice match.": "Brak harmonogramu. Zaimportuj go na stronie administratora lub rozpocznij mecz treningowy.",
+  "{n} pts": "{n} pkt"
+};
