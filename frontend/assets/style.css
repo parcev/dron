@@ -246,3 +246,18 @@ body.boot .wrap{visibility:hidden}
 /* Take off, cube and landing toggles: the whole tile is the button */
 .tile[data-a=tog]{cursor:pointer;-webkit-tap-highlight-color:transparent}
 .tile[data-a=tog]:active{background:var(--btn)}
+/* Language button (flag + code) */
+.langrow{display:flex;justify-content:flex-end;padding:8px 0 4px}
+.langrow .langwrap{position:relative;display:inline-block}
+.langrow .langbtn{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 12px 0 10px;border:0;border-radius:999px;background:var(--card);color:var(--ink);box-shadow:0 1px 6px rgba(0,0,0,.16);font:inherit;font-size:15px;font-weight:800;cursor:pointer}
+.langrow .langbtn svg{width:11px;height:11px;color:var(--mute)}
+.langrow img{width:26px;height:18px;object-fit:cover;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.2)}
+.langrow .langmenu{position:absolute;right:0;top:calc(100% + 6px);z-index:90;min-width:170px;padding:6px;border-radius:16px;background:var(--card);box-shadow:0 8px 28px rgba(0,0,0,.28)}
+.langrow .langmenu[hidden]{display:none}
+.langrow .langmenu button{display:flex;align-items:center;gap:10px;width:100%;min-height:44px;padding:0 10px;border:0;border-radius:10px;background:none;color:var(--ink);font:inherit;font-size:15px;font-weight:800;text-align:left;cursor:pointer}
+.langrow .langmenu small{margin-left:auto;font-size:12px;font-weight:600;color:var(--mute)}
+.langrow .langmenu button[aria-current=true]{background:var(--btn)}
+#calc:has(.tabs.lock) .langrow{display:none}
+#home .lbh .langrow{padding:0}
+#home .lbh .langrow .langbtn{min-height:34px;font-size:14px;padding:0 10px 0 8px}
+#tv .langrow{position:absolute;top:calc(8px + env(safe-area-inset-top,0px));left:12px;padding:0;z-index:5}
