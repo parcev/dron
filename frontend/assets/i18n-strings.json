@@ -1,0 +1,434 @@
+{
+ "html:lock": [
+  "Password",
+  "Unlock",
+  "Back to the schedule"
+ ],
+ "html:calc": [
+  "Schedule",
+  "Leaderboard",
+  "Sound on",
+  "Fullscreen timer",
+  "Change",
+  "Teamwork",
+  "Autonomous",
+  "Piloting",
+  "Reset",
+  "Score",
+  "Time’s up. Points scored after the buzzer don’t count.",
+  "Start"
+ ],
+ "html:fs": [
+  "Fullscreen timer",
+  "Start",
+  "Close"
+ ],
+ "html:pick": [
+  "Pick a team",
+  "Schedule"
+ ],
+ "html:home": [
+  "Competition schedule",
+  "Calculator",
+  "Leaderboard"
+ ],
+ "html:adm": [
+  "Admin · import schedule",
+  "Schedule",
+  "Drop the schedule CSV here",
+  "or tap to choose a file",
+  "Or generate it from team names",
+  "Teams play in the order typed. Each team plays Teamwork (two teams per match) and Solo piloting once per round.",
+  "Teamwork starts",
+  "Minutes per match",
+  "Piloting starts",
+  "Minutes per flight",
+  "Rounds per team",
+  "Break between piloting rounds (min)",
+  "Generate preview",
+  "Cancel",
+  "Import and replace schedule",
+  "CSV format",
+  "Save as",
+  "CSV (UTF-8)",
+  ", one row per slot,",
+  "no breaks",
+  ". The first row is a header:",
+  "Time",
+  "Mission_Type",
+  "Participant_1",
+  "Participant_2",
+  "Teamwork Mission",
+  "Pavilnators",
+  "Techin cyberwolves",
+  "Solo Piloting Mission"
+ ],
+ "html:jd": [
+  "Compare scores",
+  "Two judges are scoring this match",
+  "Cancel",
+  "Save"
+ ],
+ "html:tv": [
+  "✕ Close",
+  "Fullscreen"
+ ],
+ "html:asc": [
+  "Admin · scores",
+  "+ Add score",
+  "Piloting",
+  "Autonomous",
+  "Teamwork",
+  "Tap a score to change or delete it. Tap – to add a score in that spot.",
+  "Clear ALL scores…"
+ ],
+ "html:aed": [
+  "Admin · schedule",
+  "+ Add slot"
+ ],
+ "html:sm": [
+  "Score",
+  "Team name",
+  "Add score",
+  "Team",
+  "Match",
+  "Attempt",
+  "Delete",
+  "Cancel",
+  "Save"
+ ],
+ "html:em": [
+  "Schedule slot",
+  "Add slot",
+  "Mission",
+  "Teamwork",
+  "Autonomous",
+  "Solo piloting",
+  "Start",
+  "End",
+  "Team 1",
+  "Team 2",
+  "Delete",
+  "Cancel",
+  "Save"
+ ],
+ "html:ca": [
+  "Clear all scores",
+  "Clear ALL scores?",
+  "Type DELETE to confirm",
+  "Cancel",
+  "Delete everything"
+ ],
+ "html:lb": [
+  "Leaderboard",
+  "Schedule",
+  "Calculator",
+  "Piloting",
+  "Autonomous",
+  "Teamwork"
+ ],
+ "html:gate": [
+  "Password",
+  "Cancel",
+  "Enter"
+ ],
+ "app:top": [
+  "use strict"
+ ],
+ "app:loadXlsx": [
+  "The Excel reader couldn’t load. Check your connection, or use a CSV file."
+ ],
+ "app:TABS": [
+  "Teamwork",
+  "Autonomous",
+  "Piloting"
+ ],
+ "app:AUTO": [
+  "Take off",
+  "Red arch",
+  "Blue arch",
+  "Green keyhole",
+  "Yellow keyhole",
+  "Large cube",
+  "Mini 1 (lowest)",
+  "Mini 2 (middle)",
+  "Mini 3 (top)",
+  "Spiral bonus",
+  "Tunnel"
+ ],
+ "app:KH": [
+  "Keyhole 1 (lowest)",
+  "Keyhole 2 (middle)",
+  "Keyhole 3 (highest)"
+ ],
+ "app:PH": [
+  "Red arch",
+  "Green keyhole",
+  "Large cube",
+  "Blue arch",
+  "Loop yellow keyhole",
+  "Tunnel top→bottom",
+  "Blue arch again"
+ ],
+ "app:LAND": [
+  "None",
+  "Pad",
+  "Cube",
+  "Bullseye"
+ ],
+ "app:ctl": [
+  "Decrease",
+  "Increase"
+ ],
+ "app:landRow": [
+  "Landing",
+  "final landing only",
+  "{} pts"
+ ],
+ "app:w": [
+  "Phase {} has more completions than phase {}. Phases are flown in order (1 → 2 → 3 → 4), so double-check the counts.",
+  "Phase 1 is more than one ahead of phase 4. A new lap only starts after phase 4, so double-check the counts.",
+  "Phases are scored, but take off isn’t checked."
+ ],
+ "app:t": [
+  "Balls",
+  "Goal bonus",
+  "Zone",
+  "Bean bags",
+  "Flight path",
+  "Landing",
+  "Take off",
+  "Tasks",
+  "Spiral bonus",
+  "Phases",
+  ", t.offsetHeight +"
+ ],
+ "app:g": [
+  "Goals",
+  "bonus +{} · {}/40 balls",
+  "Goal",
+  "2 pts / ball",
+  "Field tasks",
+  "Scoring zone",
+  "1 pt / ball",
+  "Bean bags",
+  "10 pts · max 2",
+  "Flight path",
+  "10 pts · last 30 s",
+  "Landing",
+  "one drone per cube",
+  "Small cube",
+  "20 pts",
+  "Large cube",
+  "15 pts",
+  "Time",
+  "${esc(r.start + (r.end ?",
+  "+ r.end :",
+  "` }).join(",
+  "Teams"
+ ],
+ "app:G": [
+  "{} pts",
+  "Take off",
+  "5 pts · once",
+  "Gates · max 2 each",
+  "Mini keyholes & spiral · max 2 each",
+  "Cube & tunnel · max 2 each",
+  "Landing"
+ ],
+ "app:phase": [
+  "Phase {}",
+  "{} pts each{}",
+  "Take off",
+  "5 pts · once",
+  "Check steps in order. Start each new lap by flying over the red arch gate."
+ ],
+ "app:p": [
+  "Practice ·",
+  "· attempt",
+  "Nothing scored yet"
+ ],
+ "app:lb": [
+  "Pause",
+  "Restart",
+  "Resume",
+  "Start",
+  "Sound off",
+  "Sound on"
+ ],
+ "app:slug": [
+  "+ c.codePointAt(0).toString(36)).join("
+ ],
+ "app:toast": [
+  "7 || ai"
+ ],
+ "app:id": [
+  "+ mi +",
+  ").value, +$("
+ ],
+ "app:r": [
+  ": manage ?"
+ ],
+ "app:n": [
+  "Match ${i + 1}${pil ?"
+ ],
+ "app:one": [
+  "Team"
+ ],
+ "app:at": [
+  ": at[ 0 ]}",
+  "` }).join(",
+  "` } function renderLB() { document.querySelectorAll("
+ ],
+ "app:bySch": [
+  ").localeCompare(b.start ||",
+  ") || (a.mission ||",
+  ").localeCompare(b.mission ||"
+ ],
+ "app:MN": [
+  ", auto:",
+  ", pilot:"
+ ],
+ "app:row": [
+  ") || document.querySelector("
+ ],
+ "app:leg": [
+  ") && row.closest("
+ ],
+ "app:mk": [
+  ": /auto/i.test(s) ?",
+  ": /pilot|solo/i.test(s) ?"
+ ],
+ "app:cellStr": [
+  ")) } if (c instanceof Date) return hhmm(c.getHours(), String(c.getMinutes()).padStart(2,"
+ ],
+ "app:showPrev": [
+  "${out.length} slots ${verb ||",
+  "· Teamwork ${c(",
+  ")} · Autonomous ${c(",
+  ")} · Piloting ${c(",
+  ")}. Importing replaces the current schedule.",
+  ").scrollIntoView({ behavior:",
+  ", block:"
+ ],
+ "app:num": [
+  ").value || !$(",
+  ").value, p0: $(",
+  ").value, tl: num(",
+  ", 10), pl: num(",
+  ", 5), rounds: Math.min(4, num(",
+  ", 2)), brk: Math.max(0, parseInt($(",
+  ").value, 10) || 0) }), [],"
+ ],
+ "app:readFile": [
+  ") return [ { name:"
+ ],
+ "app:keep": [
+  "+ String(i).padStart(3,",
+  "), 700) } catch (e) { console.error(",
+  "+ e.status +",
+  "+ (e.message ||",
+  "+ (e && e.code ? e.code :",
+  "+ (e && e.message ? e.message :"
+ ],
+ "app:rng": [
+  "+ r.end :"
+ ],
+ "app:b": [
+  "} · ${esc(rng(nx))} · ${MN[ nx.mission ]}",
+  "Start scoring ›",
+  ": rows.length ?"
+ ],
+ "app:paintCtx": [
+  "+ (c.att || 1) +",
+  ") + MN[ c.mission ] +"
+ ],
+ "app:openSm": [
+  ")).focus(), 60) } function closeSm() { $("
+ ],
+ "app:er": [
+  "|| !Number.isInteger(score) || score",
+  ").value.trim().slice(0, 30) :"
+ ],
+ "app:delSm": [
+  ") } catch (e) { $("
+ ],
+ "app:delEm": [
+  ") } catch (e) { $("
+ ],
+ "app:tkey": [
+  "+ (S.ctx.att || 1) :"
+ ],
+ "app:nums": [
+  "+ nums[ 0 ] :",
+  ", d.att ?",
+  "+ d.att +",
+  ", st ].filter(Boolean).join(",
+  "${esc(t)}${same ?",
+  "Match ${nums[ i ]}"
+ ],
+ "app:mine": [
+  "You",
+  "Judge ${i + 2}",
+  ": same ?",
+  "}${x.score - mine}`).join("
+ ],
+ "app:nm": [
+  "+ mode +",
+  "+ slug(n) +",
+  "+ att :"
+ ],
+ "app:a": [
+  ") { go(",
+  ") { openEm("
+ ],
+ "app:k": [
+  "+ k } else s[",
+  ") needPin(",
+  "&& known() && window.ftDB) window.ftDB.verify(",
+  "} /* ---- admin: clear ALL scores ---- */ function openClear() { if (!ALL.length) { toast("
+ ],
+ "app:ids": [
+  "DB.doc("
+ ],
+ "app:res": [
+  "+ ids.length +"
+ ],
+ "gate:top": [
+  "use strict",
+  "Admin password",
+  "Judges’ password",
+  "Checking saved password…"
+ ],
+ "gate:show": [
+  "Enter the password to continue."
+ ],
+ "gate:check": [
+  "Waiting for the server (it may be waking up)…",
+  "Too many wrong attempts. Wait a few minutes and try again.",
+  "Can’t reach the server. It may be waking up, try again in a moment.",
+  "Wrong password.",
+  "The password was not accepted. Enter it again."
+ ],
+ "db:top": [
+  "use strict"
+ ],
+ "db:need": [
+  "DELETE"
+ ],
+ "db:send": [
+  "DELETE",
+  "Could not connect to the server.",
+  "Request failed.",
+  "Enter the admin PIN",
+  "Enter the judges’ PIN"
+ ],
+ "db:docRef": [
+  "PUT",
+  "DELETE"
+ ],
+ "db:verify": [
+  "Enter the admin PIN",
+  "Enter the judges’ PIN"
+ ]
+}
