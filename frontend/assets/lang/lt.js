@@ -1,0 +1,28 @@
+/* Lietuvių. Keys are the English text. Stage 3a: schedule and pick-a-team. */
+window.I18N = {
+  "Competition schedule": "Varžybų tvarkaraštis",
+  "Calculator": "Skaičiuoklė",
+  "Leaderboard": "Rezultatų lentelė",
+  "Schedule": "Tvarkaraštis",
+  "Scored": "Įvertinta",
+  "Now": "Dabar",
+  "Upcoming": "Būsimos",
+  "Next up": "Kita",
+  "Overdue": "Vėluoja",
+  "Teamwork": "Komandinis darbas",
+  "Autonomous": "Autonominis",
+  "Solo piloting": "Individualus pilotavimas",
+  "Time": "Laikas",
+  "Team name": "Komandos pavadinimas",
+  "Loading…": "Kraunama…",
+  "No schedule yet. An admin can import one on the Admin page.": "Tvarkaraščio dar nėra. Administratorius gali jį importuoti administratoriaus puslapyje.",
+  "Can’t load the schedule here. Check your connection and try again.": "Nepavyko įkelti tvarkaraščio. Patikrinkite ryšį ir bandykite dar kartą.",
+  "Pick a team": "Pasirinkite komandą",
+  "Start scoring ›": "Pradėti vertinimą ›",
+  "Practice match": "Treniruotės rungtis",
+  "All matches": "Visos rungtys",
+  "All matches are scored.": "Visos rungtys įvertintos.",
+  "The schedule can’t load here.": "Nepavyko įkelti tvarkaraščio.",
+  "No schedule yet. Import one on the Admin page, or run a practice match.": "Tvarkaraščio dar nėra. Importuokite jį administratoriaus puslapyje arba pradėkite treniruotės rungtį.",
+  "{n} pts": "{n} tšk."
+};
