@@ -246,18 +246,215 @@ body.boot .wrap{visibility:hidden}
 /* Take off, cube and landing toggles: the whole tile is the button */
 .tile[data-a=tog]{cursor:pointer;-webkit-tap-highlight-color:transparent}
 .tile[data-a=tog]:active{background:var(--btn)}
-/* Language button (flag + code) */
-.langrow{display:flex;justify-content:flex-end;padding:8px 0 4px}
-.langrow .langwrap{position:relative;display:inline-block}
-.langrow .langbtn{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 12px 0 10px;border:0;border-radius:999px;background:var(--card);color:var(--ink);box-shadow:0 1px 6px rgba(0,0,0,.16);font:inherit;font-size:15px;font-weight:800;cursor:pointer}
-.langrow .langbtn svg{width:11px;height:11px;color:var(--mute)}
-.langrow img{width:26px;height:18px;object-fit:cover;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.2)}
-.langrow .langmenu{position:absolute;right:0;top:calc(100% + 6px);z-index:90;min-width:170px;padding:6px;border-radius:16px;background:var(--card);box-shadow:0 8px 28px rgba(0,0,0,.28)}
-.langrow .langmenu[hidden]{display:none}
-.langrow .langmenu button{display:flex;align-items:center;gap:10px;width:100%;min-height:44px;padding:0 10px;border:0;border-radius:10px;background:none;color:var(--ink);font:inherit;font-size:15px;font-weight:800;text-align:left;cursor:pointer}
-.langrow .langmenu small{margin-left:auto;font-size:12px;font-weight:600;color:var(--mute)}
-.langrow .langmenu button[aria-current=true]{background:var(--btn)}
-#calc:has(.tabs.lock) .langrow{display:none}
-#home .lbh .langrow{padding:0}
-#home .lbh .langrow .langbtn{min-height:34px;font-size:14px;padding:0 10px 0 8px}
-#tv .langrow{position:absolute;top:calc(8px + env(safe-area-inset-top,0px));left:12px;padding:0;z-index:5}
+
+/* =========================================
+   LANGUAGE SWITCHER
+   Minimal editorial design — light/dark themes
+   ========================================= */
+
+.langrow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 8px 0 4px;
+}
+
+.langrow .langwrap {
+  position: relative;
+  display: inline-block;
+  z-index: 50;
+}
+
+/* Main button */
+.langrow .langbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 38px;
+  min-width: 76px;
+  padding: 0 10px;
+
+  border: 1px solid var(--mute);
+  border-radius: 5px;
+
+  background: transparent;
+  color: var(--ink);
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .045em;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    background-color .14s ease,
+    border-color .14s ease;
+}
+
+/* Flag */
+.langrow img {
+  display: block;
+  width: 20px;
+  height: 14px;
+  object-fit: cover;
+  flex-shrink: 0;
+
+  border-radius: 1px;
+  box-shadow: 0 0 0 1px rgba(128,128,128,.22);
+}
+
+/* Arrow */
+.langrow .langbtn svg {
+  width: 10px;
+  height: 10px;
+  color: var(--mute);
+  flex-shrink: 0;
+  transition: transform .14s ease;
+}
+
+/* Hover */
+.langrow .langbtn:hover {
+  background: var(--btn);
+}
+
+/* Open state */
+.langrow .langbtn[aria-expanded="true"] {
+  background: var(--btn);
+}
+
+.langrow .langbtn[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+/* Focus accessibility */
+.langrow .langbtn:focus-visible,
+.langrow .langmenu button:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* Dropdown */
+.langrow .langmenu {
+  position: absolute;
+  top: calc(100% + 7px);
+  right: 0;
+  z-index: 90;
+
+  min-width: 160px;
+  padding: 5px;
+
+  background: var(--card);
+  color: var(--ink);
+
+  border: 1px solid var(--mute);
+  border-radius: 6px;
+
+  box-shadow: 0 6px 22px rgba(0,0,0,.14);
+
+  animation: langmenu-in .13s ease-out;
+}
+
+/* Hidden state */
+.langrow .langmenu[hidden] {
+  display: none !important;
+}
+
+/* Dropdown animation */
+@keyframes langmenu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Language items */
+.langrow .langmenu button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  min-height: 37px;
+  padding: 0 9px;
+
+  border: 0;
+  border-radius: 3px;
+
+  background: transparent;
+  color: var(--ink);
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+
+  cursor: pointer;
+  transition: background-color .12s ease;
+}
+
+/* Hover item */
+.langrow .langmenu button:hover {
+  background: var(--btn);
+}
+
+/* Selected language */
+.langrow .langmenu button[aria-current="true"] {
+  background: var(--btn);
+  font-weight: 700;
+}
+
+/* Selected checkmark */
+.langrow .langmenu button[aria-current="true"]::after {
+  content: "✓";
+  margin-left: auto;
+  color: var(--mute);
+  font-size: 12px;
+}
+
+/* =========================================
+   EXISTING LAYOUT ADJUSTMENTS
+   ========================================= */
+
+/* Hide on locked calculator tabs */
+#calc:has(.tabs.lock) .langrow {
+  display: none;
+}
+
+/* Home header */
+#home .lbh .langrow {
+  padding: 0;
+}
+
+#home .lbh .langrow .langbtn {
+  min-height: 34px;
+}
+
+/* TV layout */
+#tv .langrow {
+  position: absolute;
+  top: calc(8px + env(safe-area-inset-top, 0px));
+  left: 12px;
+  padding: 0;
+  z-index: 5;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .langrow .langbtn,
+  .langrow .langbtn svg,
+  .langrow .langmenu button {
+    transition: none;
+  }
+
+  .langrow .langmenu {
+    animation: none;
+  }
+}
