@@ -466,3 +466,26 @@ body.boot .wrap{visibility:hidden}
   border-radius: 12px;
   border: 1px solid var(--mute);
 }
+
+/* Language button refinements */
+.langrow .langbtn {
+  min-width: 0;
+  min-height: 38px;
+  padding: 0 12px;
+  gap: 9px;
+  border-radius: 7px;
+}
+
+/* More breathing room below the selector */
+.langrow {
+  padding-bottom: 12px;
+}
+
+/* Preserve home header alignment */
+#home .lbh .langrow {
+  padding-bottom: 8px;
+}
+
+#home .lbh .langrow .langbtn {
+  min-height: 34px;
+}
