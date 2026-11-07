@@ -131,12 +131,22 @@
   document.addEventListener("click", function (e) {
     var t = e.target, menus = document.querySelectorAll(".langmenu");
     var btn = t.closest && t.closest(".langbtn");
-    if (btn) {
-      var m = btn.parentNode.querySelector(".langmenu"), open = m.hidden;
-      [].forEach.call(menus, function (x) { x.hidden = true; });
-      m.hidden = !open; btn.setAttribute("aria-expanded", String(open));
-      return;
-    }
+    
+if (btn) {
+  var m = btn.parentNode.querySelector(".langmenu");
+  var open = m.hidden;
+
+  [].forEach.call(menus, function (x) {
+    x.hidden = true;
+    var b = x.parentNode.querySelector(".langbtn");
+    if (b) b.setAttribute("aria-expanded", "false");
+  });
+
+  m.hidden = !open;
+  btn.setAttribute("aria-expanded", String(open));
+  return;
+}
+
     var item = t.closest && t.closest(".langmenu button[data-lang]");
     if (item) return choose(item.getAttribute("data-lang"));
     [].forEach.call(menus, function (x) { x.hidden = true; });
