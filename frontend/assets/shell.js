@@ -10,7 +10,7 @@
   var admin = page === "adm" || page === "asc" || page === "aed";
 
   document.head.insertAdjacentHTML("beforeend",
-    '<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Ctext y=\'.9em\' font-size=\'90\'%3E🛸%3C/text%3E%3C/svg%3E">' +
+    '<link rel="icon" type="image/png" href="' + base + 'icon.png">' +
     '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' +
     '<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">' +
     '<link rel="stylesheet" href="' + base + 'lock.css">');
