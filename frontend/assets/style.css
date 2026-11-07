@@ -458,3 +458,11 @@ body.boot .wrap{visibility:hidden}
     animation: none;
   }
 }
+.langrow .langbtn {
+  min-height: 84px;
+  min-width: 76px;
+  padding: 0 22px;
+  gap: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--mute);
+}
