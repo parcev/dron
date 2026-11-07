@@ -128,29 +128,47 @@
     try { localStorage.setItem(KEY, c); } catch (e) { }
     location.reload();
   }
-  document.addEventListener("click", function(e) {
-    var t = e.target, menus = document.querySelectorAll(".langmenu");
-    var btn = t.closest && t.closest(".langbtn");
+  
+document.addEventListener("click", function (e) {
+  var t = e.target;
+  var menus = document.querySelectorAll(".langmenu");
 
-    if (btn) {
-      var m = btn.parentNode.querySelector(".langmenu");
-      var open = m.hidden;
+  var btn = t.closest && t.closest(".langbtn");
 
-      [].forEach.call(menus, function(x) {
-        x.hidden = true;
-        var b = x.parentNode.querySelector(".langbtn");
-        if (b) b.setAttribute("aria-expanded", "false");
-      });
+  if (btn) {
+    var m = btn.parentNode.querySelector(".langmenu");
+    var open = m.hidden;
 
-      m.hidden = !open;
-      btn.setAttribute("aria-expanded", String(open));
-      return;
-    }
+    // Close all dropdowns and reset their buttons
+    [].forEach.call(menus, function (x) {
+      x.hidden = true;
 
-    var item = t.closest && t.closest(".langmenu button[data-lang]");
-    if (item) return choose(item.getAttribute("data-lang"));
-    [].forEach.call(menus, function(x) { x.hidden = true; });
+      var b = x.parentNode.querySelector(".langbtn");
+      if (b) b.setAttribute("aria-expanded", "false");
+    });
+
+    // Toggle clicked dropdown
+    m.hidden = !open;
+    btn.setAttribute("aria-expanded", String(open));
+
+    return;
+  }
+
+  var item = t.closest && t.closest(".langmenu button[data-lang]");
+
+  if (item) {
+    return choose(item.getAttribute("data-lang"));
+  }
+
+  // Click outside: close all dropdowns and reset buttons
+  [].forEach.call(menus, function (x) {
+    x.hidden = true;
+
+    var b = x.parentNode.querySelector(".langbtn");
+    if (b) b.setAttribute("aria-expanded", "false");
   });
+});
+
 
   /* ---------- public ---------- */
   function start(root) {
