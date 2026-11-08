@@ -409,7 +409,10 @@
   "Can’t reach the server. It may be waking up, try again in a moment.",
   "Wrong password.",
   "The password was not accepted. Enter it again.",
-  "Wrong password. Try again."
+  "Wrong password. Try again.",
+   "Too many wrong tries. Wait a few minutes.",
+  "Can’t reach the server. It may be waking up; try again in a moment.",
+  "Can’t reach the server. Type the password to try again."
  ],
  "db:top": [
   "use strict"
