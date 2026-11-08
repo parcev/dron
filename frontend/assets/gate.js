@@ -2,7 +2,7 @@
    The calculator needs the judges' password; the three admin pages need the admin password.
    The page stays hidden until the server (POST /api/auth) accepts a password.
    Every change to scores or the schedule is checked by the server again, so this wall is
-   not the only protection: it keeps the screens out of sight. */
+   not the only protection: it keeps the screens out of sight. 
 (function () {
   "use strict";
   var need = { calc: "judge", adm: "admin", asc: "admin", aed: "admin" }[document.body.dataset.page];
