@@ -103,11 +103,11 @@ app.use((req, res, next) => {
 
 // GET /api/auth?need=judge|admin   (password in the x-judge-pin / x-admin-pin headers)
 app.get("/api/auth", (req, res) => {
-  if (blocked(req)) return res.status(429).json({ error: "too many attempts" });
+  
   const need = req.query.need === "admin" ? 2 : 1;
   const lv = level(req.headers, JUDGE_PIN, ADMIN_PIN);
   if (lv < need) {
-    if (req.get("x-judge-pin") || req.get("x-admin-pin")) failed(req);   // only real guesses count
+       // only real guesses count
     return res.status(401).json({ need: need === 2 ? "admin" : "judge" });
   }
   res.json({ ok: true, level: lv });
