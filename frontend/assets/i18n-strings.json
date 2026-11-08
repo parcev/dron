@@ -408,7 +408,8 @@
   "Too many wrong attempts. Wait a few minutes and try again.",
   "Can’t reach the server. It may be waking up, try again in a moment.",
   "Wrong password.",
-  "The password was not accepted. Enter it again."
+  "The password was not accepted. Enter it again.",
+  "Wrong password. Try again."
  ],
  "db:top": [
   "use strict"
