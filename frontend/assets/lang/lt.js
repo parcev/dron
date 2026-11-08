@@ -126,6 +126,7 @@ window.I18N = {
   "Too many wrong attempts. Wait a few minutes and try again.": "Per daug klaidingų bandymų. Palaukite kelias minutes ir bandykite dar kartą.",
   "Can’t reach the server. It may be waking up, try again in a moment.": "Nepavyksta pasiekti serverio. Jis gali bundti, bandykite po akimirkos.",
   "Wrong password.": "Neteisingas slaptažodis.",
+  "Wrong password. Try again.":"Neteisingas slaptažodis. Bandyk dar kartą",
   "The password was not accepted. Enter it again.": "Slaptažodis nepriimtas. Įveskite jį dar kartą.",
   "Compare scores": "Palyginkite rezultatus",
   "Two judges are scoring this match": "Šią rungtį vertina du teisėjai",
