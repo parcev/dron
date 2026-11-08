@@ -1,0 +1,12 @@
+/* Password wall (see gate.js). Kept separate so style.css stays untouched. */
+body.locked .wrap{visibility:hidden}
+#lock{position:fixed;inset:0;z-index:80;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px}
+#lock[hidden]{display:none}
+#lockform{width:100%;max-width:340px;display:flex;flex-direction:column;gap:12px;text-align:center}
+#lockform h2{margin:0;font-size:22px;font-weight:800}
+#lockform p{margin:0;font-size:13px;color:var(--mute)}
+#lockform input{min-height:48px;border:1.5px solid var(--line);border-radius:12px;padding:0 14px;font:inherit;font-size:18px;background:var(--card);color:var(--ink);text-align:center}
+#lockform #lockerr{color:#d92d20;font-weight:700}
+#lockbtn{min-height:48px;border:0;border-radius:12px;background:var(--acc);color:var(--on-acc);font:inherit;font-size:16px;font-weight:800;cursor:pointer}
+#lockbtn:disabled{opacity:.5}
+#lockform a{color:var(--mute);font-size:13px}
