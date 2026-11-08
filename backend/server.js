@@ -100,15 +100,6 @@ app.use((req, res, next) => {
 });
 
 /* ---------- password check ---------- */
-// Too many wrong guesses from one address are refused for a while (30 per 10 minutes).
-const fails = new Map();   // address -> { n, t }
-const WINDOW = 10 * 60 * 1000;
-const blocked = (req) => { const e = fails.get(req.ip); return !!e && e.n >= 30 && Date.now() - e.t < WINDOW; };
-const failed = (req) => {
-  const now = Date.now(), e = fails.get(req.ip);
-  if (!e || now - e.t >= WINDOW) fails.set(req.ip, { n: 1, t: now }); else e.n++;
-};
-setInterval(() => { const cut = Date.now() - WINDOW; for (const [ip, e] of fails) if (e.t < cut) fails.delete(ip); }, WINDOW);
 
 // GET /api/auth?need=judge|admin   (password in the x-judge-pin / x-admin-pin headers)
 app.get("/api/auth", (req, res) => {
