@@ -1,3 +1,4 @@
+
 /* Polski. Keys are the English text. Everything except the admin pages. */
 window.I18N = {
   "Competition schedule": "Harmonogram zawodów",
@@ -124,7 +125,8 @@ window.I18N = {
   "Enter the password to continue.": "Wpisz hasło, aby kontynuować.",
   "Waiting for the server (it may be waking up)…": "Czekam na serwer (może się budzić)…",
   "Too many wrong attempts. Wait a few minutes and try again.": "Zbyt wiele błędnych prób. Poczekaj kilka minut i spróbuj ponownie.",
-  "Wrong password. Try again.": "Nieprawidłowe hasło. Próbuj jeszcze", "Too many wrong tries. Wait a few minutes.": "Za dużo nieprawidłowych. Spróbuj za kilka minut ponownie.",
+  "Wrong password. Try again.": "Nieprawidłowe hasło. Próbuj jeszcze",
+  "Too many wrong tries. Wait a few minutes.": "Za dużo nieprawidłowych. Spróbuj za kilka minut ponownie.",
   "Can’t reach the server. It may be waking up; try again in a moment.": "Spróbuj później ponownie",
   "Can’t reach the server. Type the password to try again.": "Spróbuj ponownie później",
   "Can’t reach the server. It may be waking up, try again in a moment.": "Brak połączenia z serwerem. Może się budzić, spróbuj za chwilę.",
@@ -156,5 +158,11 @@ window.I18N = {
   "Close": "Zamknij",
   "Enter": "Wejdź",
   "Decrease": "Zmniejsz",
-  "Increase": "Zwiększ"
+  "Increase": "Zwiększ",
+  "Are you sure you want to reset?": "Czy na pewno chcesz zresetować?",
+  "Are you sure you want to change?": "Czy na pewno chcesz zmienić?",
+  "The score and the timer will be cleared.": "Wynik i odliczanie zostaną wyczyszczone.",
+  "The current score will be lost and you will go back to the match list.": "Bieżący wynik zostanie utracony, a Ty wrócisz do listy meczów.",
+  "Yes": "Tak",
+  "Confirm": "Potwierdź"
 };
