@@ -26,29 +26,29 @@ const save = () => { try { localStorage.setItem("fts1", JSON.stringify(S)) } cat
 const T = {}; for (const k in TABS) T[ k ] = { left: TABS[ k ][ 1 ], end: 0, run: false, warned: false };
 const WARN = { team: 30, pilot: 15 };
 const sounds = {
-    warn: new Audio("sounds/warning.mp3"),
-    finish: new Audio("sounds/finish.mp3")
+  warn: new Audio("sounds/warning.mp3"),
+  finish: new Audio("sounds/finish.mp3")
 };
 
 Object.values(sounds).forEach(audio => {
-    audio.preload = "auto";
+  audio.preload = "auto";
 });
 
 function ac() {
-    // AudioContext no longer needed
+  // AudioContext no longer needed
 }
 
 function sound(k) {
-    if (S.mute) return;
+  if (S.mute) return;
 
-    const audio = sounds[k] || sounds.finish;
+  const audio = sounds[ k ] || sounds.finish;
 
-    audio.pause();
-    audio.currentTime = 0;
+  audio.pause();
+  audio.currentTime = 0;
 
-    audio.play().catch(err => {
-        console.warn("Could not play sound:", err);
-    });
+  audio.play().catch(err => {
+    console.warn("Could not play sound:", err);
+  });
 }
 function closeFs() { $("#fs").hidden = true; try { if (document.fullscreenElement) document.exitFullscreen() } catch (e) { } try { if (WL) WL.release(); WL = null } catch (e) { } }
 document.addEventListener("fullscreenchange", () => { if (!document.fullscreenElement) closeFs() });
