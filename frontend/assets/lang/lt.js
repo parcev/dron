@@ -126,10 +126,10 @@ window.I18N = {
   "Too many wrong attempts. Wait a few minutes and try again.": "Per daug klaidingų bandymų. Palaukite kelias minutes ir bandykite dar kartą.",
   "Can’t reach the server. It may be waking up, try again in a moment.": "Nepavyksta pasiekti serverio. Jis gali bundti, bandykite po akimirkos.",
   "Wrong password.": "Neteisingas slaptažodis.",
-  "Wrong password. Try again.":"Neteisingas slaptažodis. Bandyk dar kartą",
-  "Too many wrong tries. Wait a few minutes.":"Bandyk vėliau",
-  "Can’t reach the server. It may be waking up; try again in a moment.":"Bandyk vėliau",
-  "Can’t reach the server. Type the password to try again.":"Bandyk vėliau",
+  "Wrong password. Try again.": "Neteisingas slaptažodis. Bandykite dar kartą.",
+  "Too many wrong tries. Wait a few minutes.": "Per daug klaidingų bandymų. Palaukite kelias minutes.",
+  "Can’t reach the server. It may be waking up; try again in a moment.": "Nepavyksta pasiekti serverio. Jis gali bundti, bandykite po akimirkos.",
+  "Can’t reach the server. Type the password to try again.": "Nepavyksta pasiekti serverio. Įveskite slaptažodį ir bandykite dar kartą.",
   "The password was not accepted. Enter it again.": "Slaptažodis nepriimtas. Įveskite jį dar kartą.",
   "Compare scores": "Palyginkite rezultatus",
   "Two judges are scoring this match": "Šią rungtį vertina du teisėjai",
@@ -157,5 +157,11 @@ window.I18N = {
   "Close": "Uždaryti",
   "Enter": "Įeiti",
   "Decrease": "Sumažinti",
-  "Increase": "Padidinti"
+  "Increase": "Padidinti",
+  "Are you sure you want to reset?": "Ar tikrai norite atstatyti?",
+  "Are you sure you want to change?": "Ar tikrai norite keisti?",
+  "The score and the timer will be cleared.": "Rezultatas ir laikmatis bus išvalyti.",
+  "The current score will be lost and you will go back to the match list.": "Dabartinis rezultatas bus prarastas, o jūs grįšite į rungčių sąrašą.",
+  "Yes": "Taip",
+  "Confirm": "Patvirtinti"
 };
