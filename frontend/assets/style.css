@@ -178,8 +178,21 @@ th small{display:block;font-size:10px;font-weight:600;opacity:.7;white-space:now
 .cell.best{color:var(--acc)}
 .mg .att{white-space:nowrap}
 .edb{border:0;background:var(--btn);border-radius:8px;min-width:34px;min-height:34px;font-size:15px}
-.mdl{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.5);display:flex;align-items:flex-end;justify-content:center;padding:env(safe-area-inset-top,0px) 12px calc(12px + env(safe-area-inset-bottom,0px))}
-.mdl[hidden]{display:none}
+
+.mdl {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    background: rgba(0,0,0,.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: env(safe-area-inset-top,0px) 12px calc(12px + env(safe-area-inset-bottom,0px));
+}
+.mdl[hidden] {
+    display: none;
+}
+
 .mdc{width:100%;max-width:420px;max-height:100%;overflow:auto;background:var(--card);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:10px}
 .mdc h3{margin:0;font-size:16px}
 .mdc label{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:700;color:var(--mute)}
@@ -489,6 +502,6 @@ body.boot .wrap{visibility:hidden}
 #home .lbh .langrow .langbtn {
   min-height: 34px;
 }
-/* "Are you sure?" popup in the middle of the screen */
+/* "Are you sure?" popup in the middle of the screen 
 .mdl.mid{align-items:center}
-.cfp{margin:0;font-size:14px;color:var(--mute)}
+.cfp{margin:0;font-size:14px;color:var(--mute)}*/
