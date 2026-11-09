@@ -489,3 +489,6 @@ body.boot .wrap{visibility:hidden}
 #home .lbh .langrow .langbtn {
   min-height: 34px;
 }
+/* "Are you sure?" popup in the middle of the screen */
+.mdl.mid{align-items:center}
+.cfp{margin:0;font-size:14px;color:var(--mute)}
