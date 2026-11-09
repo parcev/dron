@@ -25,11 +25,31 @@ catch (e) { for (const t in TABS) S[ t ] = fresh(t) }
 const save = () => { try { localStorage.setItem("fts1", JSON.stringify(S)) } catch (e) { } };
 const T = {}; for (const k in TABS) T[ k ] = { left: TABS[ k ][ 1 ], end: 0, run: false, warned: false };
 const WARN = { team: 30, pilot: 15 };
-let AC = null, WL = null;
-function ac() { try { AC = AC || new (window.AudioContext || window.webkitAudioContext)(); if (AC.state === "suspended") AC.resume() } catch (e) { } }
-function beep(f, at, d) { if (!AC) return; const o = AC.createOscillator(), g = AC.createGain(), t = AC.currentTime + at; o.type = "square"; o.frequency.value = f; o.connect(g); g.connect(AC.destination); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.25, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + d); o.start(t); o.stop(t + d + 0.05) }
-function sound(k) { if (S.mute || !AC) return; if (k === "warn") { beep(880, 0, .18); beep(880, .3, .18) } else { beep(660, 0, .3); beep(660, .45, .3); beep(990, .9, 1.1) } }
-async function openFs() { const f = $("#fs"); f.hidden = false; try { const r = f.requestFullscreen && f.requestFullscreen(); if (r && r.catch) r.catch(() => { }) } catch (e) { } try { WL = await navigator.wakeLock.request("screen") } catch (e) { } }
+const sounds = {
+    warn: new Audio("sounds/warning.mp3"),
+    finish: new Audio("sounds/finish.mp3")
+};
+
+Object.values(sounds).forEach(audio => {
+    audio.preload = "auto";
+});
+
+function ac() {
+    // AudioContext no longer needed
+}
+
+function sound(k) {
+    if (S.mute) return;
+
+    const audio = sounds[k] || sounds.finish;
+
+    audio.pause();
+    audio.currentTime = 0;
+
+    audio.play().catch(err => {
+        console.warn("Could not play sound:", err);
+    });
+}
 function closeFs() { $("#fs").hidden = true; try { if (document.fullscreenElement) document.exitFullscreen() } catch (e) { } try { if (WL) WL.release(); WL = null } catch (e) { } }
 document.addEventListener("fullscreenchange", () => { if (!document.fullscreenElement) closeFs() });
 
