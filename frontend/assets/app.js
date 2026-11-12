@@ -27,7 +27,7 @@ const T = {}; for (const k in TABS) T[ k ] = { left: TABS[ k ][ 1 ], end: 0, run
 const WARN = { team: 30, pilot: 15 };
 const sounds = {
   warn: new Audio("sounds/warning.mp3"),
-  finish: new Audio("sounds/finish.mp3")
+  finish: new Audio("sounds/timeout.mp3")
 };
 
 Object.values(sounds).forEach(audio => {
