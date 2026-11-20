@@ -3,6 +3,7 @@
 const ROOT = new URL("../", document.currentScript.src).href;
 const PAGE = document.body.dataset.page || "home";
 const PATHS = { home: "", calc: "calculator/", lb: "leaderboard/", tv: "timer/", adm: "admin/", asc: "admin/scores/", aed: "admin/schedule/" };
+const ASSET_BASE = new URL(".", document.currentScript.src);
 const go = v => { location.href = ROOT + (PATHS[ v ] || "") };
 function fixLinks() { document.querySelectorAll("a[data-go]").forEach(a => { a.href = ROOT + (PATHS[ a.dataset.go ] || "") }) }
 const loadXlsx = () => new Promise((ok, no) => { const s = document.createElement("script"); s.src = "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"; s.onload = ok; s.onerror = () => no(new Error("The Excel reader couldn’t load. Check your connection, or use a CSV file.")); document.head.append(s) });
@@ -26,8 +27,8 @@ const save = () => { try { localStorage.setItem("fts1", JSON.stringify(S)) } cat
 const T = {}; for (const k in TABS) T[ k ] = { left: TABS[ k ][ 1 ], end: 0, run: false, warned: false };
 const WARN = { team: 30, pilot: 15 };
 const sounds = {
-  warn: new Audio("sounds/warning.mp3"),
-  finish: new Audio("sounds/timeout.mp3")
+  warn: new Audio("sounds/warning.mp3", ASSET_BASE),
+  finish: new Audio("sounds/timeout.mp3", ASSET_BASE)
 };
 
 Object.values(sounds).forEach(audio => {
