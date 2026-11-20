@@ -26,14 +26,16 @@ catch (e) { for (const t in TABS) S[ t ] = fresh(t) }
 const save = () => { try { localStorage.setItem("fts1", JSON.stringify(S)) } catch (e) { } };
 const T = {}; for (const k in TABS) T[ k ] = { left: TABS[ k ][ 1 ], end: 0, run: false, warned: false };
 const WARN = { team: 30, pilot: 15 };
+
 const sounds = {
-  warn: new Audio("sounds/warning.mp3", ASSET_BASE),
-  finish: new Audio("sounds/timeout.mp3", ASSET_BASE)
+  warn: new Audio(new URL("sounds/warning.mp3", ASSET_BASE).href),
+  finish: new Audio(new URL("sounds/timeout.mp3", ASSET_BASE).href)
 };
 
 Object.values(sounds).forEach(audio => {
   audio.preload = "auto";
 });
+
 
 function ac() {
   // AudioContext no longer needed
