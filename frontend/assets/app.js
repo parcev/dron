@@ -127,7 +127,13 @@ function paintTimer() {
   $("#start").textContent = $("#fsstart").textContent = lb;
   $("#fsl").textContent = TABS[ S.tab ][ 0 ];
   $("#fs").className = t.left === 0 ? "zero" : (w && t.left <= w ? "low" : "");
-  $("#snd").textContent = S.mute ? "🔇" : "🔊"; $("#snd").setAttribute("aria-label", S.mute ? "Sound off" : "Sound on");
+  $("#snd").innerHTML = S.mute
+    ? '<i data-lucide="volume-x"></i>'
+    : '<i data-lucide="volume-2"></i>';
+
+  $("#snd").setAttribute("aria-label", S.mute ? "Sound off" : "Sound on");
+
+  if (window.lucide) lucide.createIcons();
   $("#up").hidden = t.left !== 0;
   const cb = document.querySelector(".confirm"); if (cb) { cb.disabled = !cfOk(); cb.textContent = cfTxt() }
 }
