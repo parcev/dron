@@ -55,6 +55,13 @@ function sound(k) {
 }
 function closeFs() { $("#fs").hidden = true; try { if (document.fullscreenElement) document.exitFullscreen() } catch (e) { } try { if (WL) WL.release(); WL = null } catch (e) { } }
 document.addEventListener("fullscreenchange", () => { if (!document.fullscreenElement) closeFs() });
+function openFs() {
+  const fs = $("#fs");
+  if (!fs) return;
+
+  fs.hidden = false;
+  paintTimer();
+}
 
 function room(t, id) {
   const s = S[ t ];
