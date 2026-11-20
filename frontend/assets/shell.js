@@ -38,6 +38,12 @@
       if (!window.t) window.t = function(k, v) { return v ? k.replace(/\{(\w+)\}/g, function(m, n) { return n in v ? v[ n ] : m; }) : k; };
       document.body.insertAdjacentHTML("afterbegin", r[ 0 ]);
       if (window.i18n) window.i18n.start(document.body);
+      var lucide = document.createElement("script");
+      lucide.src = "https://unpkg.com/lucide@latest";
+      lucide.onload = function() {
+        if (window.lucide) window.lucide.createIcons();
+      };
+      document.head.appendChild(lucide);
       [ "gate.js", "app.js" ].forEach(function(name) {            // gate.js first: it locks the page that needs a password
         var s = document.createElement("script");
         s.src = base + name;
