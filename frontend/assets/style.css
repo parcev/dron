@@ -505,3 +505,9 @@ body.boot .wrap{visibility:hidden}
 /* "Are you sure?" popup in the middle of the screen 
 .mdl.mid{align-items:center}
 .cfp{margin:0;font-size:14px;color:var(--mute)}*/
+#snd svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
+  display: block;
+}
