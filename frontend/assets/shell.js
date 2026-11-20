@@ -10,10 +10,12 @@
   var admin = page === "adm" || page === "asc" || page === "aed";
 
   document.head.insertAdjacentHTML("beforeend",
-    '<link rel="icon" type="image/png" href="' + base + 'logoNK.png">' +
-    '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' +
-    '<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">' +
-    '<link rel="stylesheet" href="' + base + 'lock.css">');
+  '<link rel="icon" type="image/png" href="' + base + 'logoNK.png">' +
+  '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' +
+  '<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">' +
+  '<link rel="stylesheet" href="' + base + 'lock.css">' +
+  '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">'
+);
 
   function script(src) {                                          // never blocks the page: a missing file just means English
     return new Promise(function(done) {
